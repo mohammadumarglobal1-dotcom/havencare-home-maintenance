@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="HavenCare — premium home maintenance across the UAE. AC, plumbing, electrical, painting, pest control and annual care plans." />
+  <link rel="icon" href="data:," />
+  <title>HavenCare — Premium Home Maintenance, UAE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- ======================= NAV ======================= -->
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="HavenCare home">
+        <span class="brand-name">Haven<em>Care</em></span>
+        <span class="brand-ar" lang="ar">ملاذ كير</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#standard">Our Standard</a>
+        <a href="#plans">Care Plans</a>
+        <a href="#areas">Areas</a>
+        <a href="#faq">FAQ</a>
+        <button id="openTrackBtn" type="button" class="btn btn-outline" style="padding: 7px 18px; font-size: 13.5px; border-radius: 999px;">Track Booking</button>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu" type="button"><span></span></button>
+      <a class="btn btn-brass btn-nav" href="#book">Book a Visit</a>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#standard">Our Standard</a>
+      <a href="#plans">Care Plans</a>
+      <a href="#areas">Areas</a>
+      <a href="#faq">FAQ</a>
+      <a href="javascript:void(0)" id="openTrackMobileBtn" style="color: var(--brass); font-weight: 500;">Track My Booking →</a>
+    </nav>
+  </header>
+
+  <!-- ======================= HERO ======================= -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <img class="hero-img" src="assets/images/hero-bg.webp" alt="A HavenCare technician inspecting an elegant Dubai villa living room with arched windows overlooking palms" fetchpriority="high" />
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Premium Home Maintenance — UAE</div>
+      <h1>Your home, cared for <span class="it">like it's our own.</span></h1>
+      <p class="hero-sub">One trusted team for every detail of your villa or apartment — cooling, plumbing, electrical, painting and more, delivered with hotel-grade care.</p>
+      <div class="hero-cta">
+        <a class="btn btn-brass" href="#book">Book a Visit</a>
+        <a class="btn btn-ghost" href="#services">Explore Services</a>
+      </div>
+      <div class="hero-meta">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg>
+          Same-day slots available
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+          30-day service guarantee
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 00-3-3.87"/></svg>
+          Certified, background-checked technicians
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= MARQUEE ======================= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>AC &amp; Cooling</span><span>Plumbing</span><span>Electrical</span><span>Painting</span><span>Pest Control</span><span>Annual Care Plans</span>
+      <span>AC &amp; Cooling</span><span>Plumbing</span><span>Electrical</span><span>Painting</span><span>Pest Control</span><span>Annual Care Plans</span>
+    </div>
+  </div>
+
+  <!-- ======================= SERVICES ======================= -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">What we take care of</div>
+        <h2>Every trade. One call. Zero hassle.</h2>
+        <p>Specialist crews for each craft, one concierge who coordinates it all. No chasing contractors, no surprises.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc-card reveal">
+          <div class="svc-media">
+            <img src="assets/images/service-ac.webp" alt="HVAC technician inspecting residential climate system" loading="lazy" />
+            <span class="svc-num">01</span>
+          </div>
+          <div class="svc-body">
+            <h3>AC Repair &amp; Maintenance</h3>
+            <p>Cooling that stays honest through August. Repairs, servicing, duct cleaning and gas refills for splits and central systems.</p>
+            <div class="svc-tags"><span>Breakdown repair</span><span>Seasonal servicing</span><span>Duct cleaning</span><span>Thermostat setup</span></div>
+            <button class="svc-book" data-service="AC Repair &amp; Maintenance" type="button">
+              Book this service
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="svc-card reveal">
+          <div class="svc-media">
+            <img src="assets/images/service-plumbing.webp" alt="Professional plumber repairing residential water piping and bathroom fixtures" loading="lazy" />
+            <span class="svc-num">02</span>
+          </div>
+          <div class="svc-body">
+            <h3>Plumbing</h3>
+            <p>Leak-free living, quietly handled. From dripping taps to water heaters, pumps and full bathroom fittings.</p>
+            <div class="svc-tags"><span>Leak detection</span><span>Water heaters</span><span>Sanitary fittings</span><span>Drainage</span></div>
+            <button class="svc-book" data-service="Plumbing" type="button">
+              Book this service
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="svc-card reveal">
+          <div class="svc-media">
+            <img src="assets/images/service-electrical.webp" alt="Electrician testing circuit breakers and architectural electrical panel" loading="lazy" />
+            <span class="svc-num">03</span>
+          </div>
+          <div class="svc-body">
+            <h3>Electrical</h3>
+            <p>Safe, tidy electrics — no shortcuts. Fixtures, wiring, smart switches and DB boards, certified and tested.</p>
+            <div class="svc-tags"><span>Lighting &amp; fixtures</span><span>Smart switches</span><span>Wiring</span><span>DB panels</span></div>
+            <button class="svc-book" data-service="Electrical" type="button">
+              Book this service
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="svc-card reveal">
+          <div class="svc-media">
+            <img src="assets/images/service-painting.webp" alt="Professional painter applying architectural finish with roller" loading="lazy" />
+            <span class="svc-num">04</span>
+          </div>
+          <div class="svc-body">
+            <h3>Painting &amp; Finishing</h3>
+            <p>A flawless finish, walls to ceiling. Interior and exterior painting, texture work, gypsum patching and touch-ups.</p>
+            <div class="svc-tags"><span>Interior &amp; exterior</span><span>Texture paint</span><span>Gypsum repair</span><span>Waterproofing</span></div>
+            <button class="svc-book" data-service="Painting &amp; Finishing" type="button">
+              Book this service
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="svc-card reveal">
+          <div class="svc-media">
+            <img src="assets/images/service-pest.webp" alt="Specialist applying eco-safe pest defense in villa" loading="lazy" />
+            <span class="svc-num">05</span>
+          </div>
+          <div class="svc-body">
+            <h3>Pest Control</h3>
+            <p>Discreet, family-safe protection. Municipality-approved treatments for villas and apartments, inside and out.</p>
+            <div class="svc-tags"><span>General pest</span><span>Termite inspection</span><span>Rodent control</span><span>Preventive plans</span></div>
+            <button class="svc-book" data-service="Pest Control" type="button">
+              Book this service
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= STANDARD ======================= -->
+  <section class="promise" id="standard">
+    <div class="wrap">
+      <div class="eyebrow reveal">The HavenCare standard</div>
+      <h2 class="reveal">Craftsmanship you can feel.</h2>
+      <p class="lead reveal">Every visit follows the same uncompromising protocol — from the shoe covers at your door to the final walkthrough before we leave.</p>
+      <div class="promise-grid">
+        <div class="promise-img reveal">
+          <img src="assets/images/our-standard.webp" alt="Architectural exterior of modern luxury villa with infinity pool and manicured landscape" loading="lazy" />
+        </div>
+        <ul class="std-list reveal">
+          <li>
+            <span class="std-icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <div>
+              <h3>Vetted, certified crews</h3>
+              <p>Background-checked technicians, trained in-house and rated after every visit. Only our own people — never freelancers.</p>
+            </div>
+          </li>
+          <li>
+            <span class="std-icon"><svg viewBox="0 0 24 24"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span>
+            <div>
+              <h3>Arrival windows we keep</h3>
+              <p>Two-hour slots, live tracking on the day, and a call if we're ever running late. Your time is respected.</p>
+            </div>
+          </li>
+          <li>
+            <span class="std-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 3v18M3 12h18" stroke-dasharray="0"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></span>
+            <div>
+              <h3>Transparent, upfront quotes</h3>
+              <p>The price is agreed before a single tool is lifted. No hidden extras, no "surprise" discoveries mid-job.</p>
+            </div>
+          </li>
+          <li>
+            <span class="std-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div>
+              <h3>30-day service guarantee</h3>
+              <p>If anything we touched isn't perfect within 30 days, we come back and make it right — free of charge.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PROCESS ======================= -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">How it works</div>
+        <h2>Booked in a minute, handled end to end.</h2>
+        <p>Four simple steps between you and a home that feels brand new.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-no">— 01</span>
+          <h3>Request a visit</h3>
+          <p>Tell us what you need in the form below — it takes under a minute.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-no">— 02</span>
+          <h3>We confirm &amp; quote</h3>
+          <p>A coordinator calls you back, confirms a slot and shares an upfront price.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-no">— 03</span>
+          <h3>The crew arrives</h3>
+          <p>Our uniformed team arrives on time, protects your floors and gets to work.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-no">— 04</span>
+          <h3>Done &amp; guaranteed</h3>
+          <p>We walk through the work together, then back it with our 30-day guarantee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PLANS ======================= -->
+  <section class="plans" id="plans">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Annual care plans</div>
+        <h2>One contract. A year of peace of mind.</h2>
+        <p>Annual maintenance contracts for apartments and villas — scheduled visits, priority response and one dedicated point of contact.</p>
+      </div>
+      <div class="plan-grid">
+        <article class="plan reveal">
+          <h3>Apartment Care</h3>
+          <p class="plan-sub">Studios to 3-bedroom apartments</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Two scheduled AC services per year</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Quarterly plumbing &amp; electrical check-ups</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Priority same-day booking slots</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Annual pest treatment included</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>10% off all extra services</li>
+          </ul>
+          <button class="btn btn-outline plan-quote" data-service="Annual Plan — Apartment Care" type="button">Request a Quote</button>
+        </article>
+
+        <article class="plan plan-featured reveal">
+          <span class="plan-badge">Most chosen</span>
+          <h3>Villa Care</h3>
+          <p class="plan-sub">Townhouses &amp; villas, up to 6 bedrooms</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Everything in Apartment Care, for villas</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Water tank &amp; pump maintenance</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Outdoor &amp; landscape lighting checks</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Garage &amp; gate mechanism servicing</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>15% off all extra services</li>
+          </ul>
+          <button class="btn btn-brass plan-quote" data-service="Annual Plan — Villa Care" type="button">Request a Quote</button>
+        </article>
+
+        <article class="plan reveal">
+          <h3>Signature</h3>
+          <p class="plan-sub">Large villas &amp; penthouses, white-glove</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Everything in Villa Care</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Monthly walkthrough inspections</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Dedicated care manager, one number to call</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Emergency priority response, weekends included</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>20% off all extra services</li>
+          </ul>
+          <button class="btn btn-outline plan-quote" data-service="Annual Plan — Signature" type="button">Request a Quote</button>
+        </article>
+      </div>
+      <p class="plan-note reveal">Every plan begins with a free property assessment — we tailor the schedule and pricing to your home.</p>
+    </div>
+  </section>
+
+  <!-- ======================= AREAS ======================= -->
+  <section class="areas" id="areas">
+    <div class="wrap">
+      <div class="areas-grid">
+        <div class="reveal">
+          <div class="eyebrow">Where we operate</div>
+          <h2>All seven emirates, one standard.</h2>
+          <p style="color: var(--muted); font-weight: 300; font-size: 18px; max-width: 480px;">Crews are based across the Emirates, so most visits are same-day or next-day — with no call-out surcharges inside our coverage zones.</p>
+          <div style="margin-top: 30px;">
+            <a class="btn btn-brass" href="#book">Check My Area</a>
+          </div>
+        </div>
+        <div class="emirates reveal">
+          <div class="emirate"><div><b>Dubai</b><small>Same-day availability</small></div><span class="dot"></span></div>
+          <div class="emirate"><div><b>Abu Dhabi</b><small>Same-day availability</small></div><span class="dot"></span></div>
+          <div class="emirate"><div><b>Sharjah</b><small>Next-day availability</small></div><span class="dot"></span></div>
+          <div class="emirate"><div><b>Ajman</b><small>Next-day availability</small></div><span class="dot"></span></div>
+          <div class="emirate"><div><b>Ras Al Khaimah</b><small>Next-day availability</small></div><span class="dot"></span></div>
+          <div class="emirate"><div><b>Umm Al Quwain</b><small>Next-day availability</small></div><span class="dot"></span></div>
+          <div class="emirate"><div><b>Fujairah</b><small>Next-day availability</small></div><span class="dot"></span></div>
+          <div class="emirate"><div><b>Other areas</b><small>Ask us — we often cover it</small></div><span class="dot" style="opacity:.35"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= BOOKING ======================= -->
+  <section class="booking" id="book">
+    <div class="wrap">
+      <div class="book-shell reveal">
+        <div class="book-side">
+          <div class="eyebrow">Book a visit</div>
+          <h2>We’ll take it from here.</h2>
+          <p>Fill in your details and we’ll call you back to confirm your slot. Visits are available every day of the week.</p>
+          <div class="hours">
+            <span><svg viewBox="0 0 24 24"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg>Daily, 8:00 AM – 10:00 PM</span>
+            <span><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Emergency line for plan members</span>
+            <span><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z"/></svg>No call-out fee inside coverage zones</span>
+          </div>
+        </div>
+        <form class="book-form" id="bookForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="fName">Full name</label>
+              <input id="fName" name="name" type="text" placeholder="e.g. Ahmed Al Falasi" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="fPhone">Phone / WhatsApp</label>
+              <input id="fPhone" name="phone" type="tel" inputmode="tel" placeholder="e.g. 050 123 4567" autocomplete="tel" required />
+            </div>
+            <div class="field">
+              <label for="fCity">Emirate</label>
+              <select id="fCity" name="city" required>
+                <option value="" disabled selected>Select your emirate</option>
+                <option>Dubai</option>
+                <option>Abu Dhabi</option>
+                <option>Sharjah</option>
+                <option>Ajman</option>
+                <option>Ras Al Khaimah</option>
+                <option>Umm Al Quwain</option>
+                <option>Fujairah</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fService">Service needed</label>
+              <select id="fService" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>AC Repair &amp; Maintenance</option>
+                <option>Plumbing</option>
+                <option>Electrical</option>
+                <option>Painting &amp; Finishing</option>
+                <option>Pest Control</option>
+                <option>Annual Plan — Apartment Care</option>
+                <option>Annual Plan — Villa Care</option>
+                <option>Annual Plan — Signature</option>
+                <option>Multiple services</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fProperty">Property type</label>
+              <select id="fProperty" name="property">
+                <option value="" disabled selected>Select property type</option>
+                <option>Studio apartment</option>
+                <option>Apartment (1–2 bedrooms)</option>
+                <option>Apartment (3+ bedrooms)</option>
+                <option>Townhouse</option>
+                <option>Villa</option>
+                <option>Penthouse</option>
+                <option>Office / commercial</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fDate">Preferred date</label>
+              <input id="fDate" name="date" type="date" />
+            </div>
+            <div class="field full">
+              <span id="slotLabel" style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;">Preferred time</span>
+              <div class="slots" role="radiogroup" aria-labelledby="slotLabel">
+                <span class="slot"><input type="radio" name="slot" id="s1" value="Morning (8 AM – 12 PM)" /><label for="s1">Morning</label></span>
+                <span class="slot"><input type="radio" name="slot" id="s2" value="Afternoon (12 – 4 PM)" /><label for="s2">Afternoon</label></span>
+                <span class="slot"><input type="radio" name="slot" id="s3" value="Evening (4 – 8 PM)" /><label for="s3">Evening</label></span>
+                <span class="slot"><input type="radio" name="slot" id="s4" value="Any time" checked /><label for="s4">Any time</label></span>
+              </div>
+            </div>
+            <div class="field full">
+              <label for="fNotes">Tell us about the job</label>
+              <textarea id="fNotes" name="notes" placeholder="e.g. Two AC units in the villa aren’t cooling well, upstairs bedroom is warmest…"></textarea>
+            </div>
+          </div>
+          <div class="request-preview" id="preview" aria-live="polite">
+            <h3>Your booking request</h3>
+            <pre id="previewText"></pre>
+            <div class="form-actions" style="margin-top: 0;">
+              <a class="btn btn-brass" id="whatsappBtn" href="#" target="_blank" rel="noopener">Send via WhatsApp</a>
+              <a class="btn btn-outline" id="emailBtn" href="#">Send via Email</a>
+              <button class="btn btn-outline" type="button" id="copyBtn">Copy Text</button>
+              <button class="btn btn-outline" type="button" id="downloadBtn">Download as Text File</button>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-brass" type="submit">Create Booking Request</button>
+          </div>
+          <p class="form-hint">Review your request, then send it with one tap — WhatsApp and email open with everything pre-filled, ready to hit send. You can also copy or download the text for your records.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FAQ ======================= -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <div class="eyebrow" style="justify-content:center;">Good to know</div>
+        <h2>Questions, answered.</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>How quickly can someone reach me?<span class="plus">+</span></summary>
+          <div class="faq-a">Same-day slots are usually available in Dubai and Abu Dhabi, and next-day across the other emirates. Send a booking request before 6 PM and we’ll confirm your visit that evening.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Do you bring materials and spare parts?<span class="plus">+</span></summary>
+          <div class="faq-a">Yes — our crews carry the most common parts on board. If your job needs something specialist, we’ll quote it transparently before ordering, with no markup surprises.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>How does the 30-day guarantee work?<span class="plus">+</span></summary>
+          <div class="faq-a">Simple: if anything we worked on isn’t right within 30 days of the visit, we return and fix it free of charge. For annual plans, the guarantee extends across the full contract.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>How are annual care plans priced?<span class="plus">+</span></summary>
+          <div class="faq-a">Every property is different, so every plan starts with a free assessment. We walk through your home, map the year’s visits, and give you one fixed annual price — no hourly billing.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Is pest control safe for kids and pets?<span class="plus">+</span></summary>
+          <div class="faq-a">Yes. We use municipality-approved, low-toxicity products applied with precision, and we’ll tell you exactly which rooms to air afterwards and for how long.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CTA BAND ======================= -->
+  <section class="cta-band">
+    <div class="wrap" style="position: relative; z-index: 2;">
+      <div class="ar-line" lang="ar">بيتك يستحق الأفضل</div>
+      <h2 class="reveal">Give your home the care it deserves.</h2>
+      <p class="reveal">One visit is all it takes to feel the HavenCare difference. Book today — we’ll handle the rest.</p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-brass" href="#book">Book a Visit</a>
+        <a class="btn btn-ghost" href="#plans">View Care Plans</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <div class="brand">
+            <span class="brand-name">Haven<em>Care</em></span>
+            <span class="brand-ar" lang="ar">ملاذ كير</span>
+          </div>
+          <p>Premium home maintenance across the United Arab Emirates. One team, every trade, done right.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">AC Repair &amp; Maintenance</a></li>
+            <li><a href="#services">Plumbing</a></li>
+            <li><a href="#services">Electrical</a></li>
+            <li><a href="#services">Painting &amp; Finishing</a></li>
+            <li><a href="#services">Pest Control</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#standard">Our Standard</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#plans">Care Plans</a></li>
+            <li><a href="#areas">Areas Served</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Visit Hours</h4>
+          <ul>
+            <li>Every day</li>
+            <li>8:00 AM – 10:00 PM</li>
+            <li style="margin-top: 10px;"><a href="#book">Book a visit →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 HavenCare Home Maintenance. All rights reserved.</span>
+        <span>Crafted for homes across the Emirates.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Confirmation Modal Dialog -->
+  <dialog id="confirmationModal" closedby="any" class="customer-modal" aria-labelledby="receiptTitle">
+    <div class="modal-header">
+      <h3 id="receiptTitle">Visit Requested Successfully!</h3>
+      <button class="modal-close-btn" onclick="document.getElementById('confirmationModal').close()" type="button" aria-label="Close dialog">&times;</button>
+    </div>
+    <p style="color: var(--muted); font-size: 15px; margin: 0 0 16px;">
+      Your request has been received in our concierge system. A HavenCare supervisor is reviewing your property requirements.
+    </p>
+    <div class="receipt-ref-box">
+      <span>Booking Reference</span>
+      <strong id="receiptRef">HAV-0000</strong>
+    </div>
+    <ul class="receipt-summary-list">
+      <li><span>Client:</span> <strong id="receiptName">—</strong></li>
+      <li><span>Service:</span> <strong id="receiptService">—</strong></li>
+      <li><span>Emirate:</span> <strong id="receiptCity">—</strong></li>
+      <li><span>Scheduled Slot:</span> <strong id="receiptSchedule">—</strong></li>
+    </ul>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+      <a id="receiptWaBtn" href="#" target="_blank" class="btn btn-brass" style="flex: 1; text-align: center;">
+        Confirm on WhatsApp →
+      </a>
+      <button type="button" class="btn btn-outline" onclick="document.getElementById('confirmationModal').close()" style="flex: 1;">
+        Done
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Track Booking Modal Dialog -->
+  <dialog id="trackModal" closedby="any" class="customer-modal" aria-labelledby="trackTitle">
+    <div class="modal-header">
+      <h3 id="trackTitle">Track Your Visit Request</h3>
+      <button class="modal-close-btn" onclick="document.getElementById('trackModal').close()" type="button" aria-label="Close dialog">&times;</button>
+    </div>
+    <p style="color: var(--muted); font-size: 14.5px; margin-bottom: 18px;">
+      Enter your <strong>Reference Code</strong> (e.g. <code>HAV-7102</code>) or registered <strong>Phone Number</strong> to view your real-time status.
+    </p>
+    <form id="trackForm">
+      <div class="track-form-group">
+        <input type="text" id="trackQueryInput" placeholder="e.g. DAR-7102 or +971501234567" required />
+        <button type="submit" class="btn btn-brass" style="padding: 10px 24px; font-size: 14.5px;">Search</button>
+      </div>
+    </form>
+    <div id="trackResultArea"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
