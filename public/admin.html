@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HavenCare Concierge — Admin Management Dashboard</title>
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="admin-brand">
+      <h1>Haven<em>Care</em> Concierge</h1>
+      <span class="badge">Live Admin</span>
+    </div>
+    <div class="admin-nav-actions">
+      <a href="/" class="btn-secondary" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View Website
+      </a>
+      <a href="/api/export/csv" class="btn-primary" download>Export CSV</a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="admin-container">
+    <!-- Stats Cards -->
+    <section class="stats-grid" aria-label="Dashboard Statistics">
+      <div class="stat-card">
+        <span class="stat-label">Total Requests</span>
+        <div class="stat-val" id="statTotal">—</div>
+      </div>
+      <div class="stat-card pending">
+        <span class="stat-label">Pending Action</span>
+        <div class="stat-val" id="statPending">—</div>
+      </div>
+      <div class="stat-card confirmed">
+        <span class="stat-label">Active / Scheduled</span>
+        <div class="stat-val" id="statConfirmed">—</div>
+      </div>
+      <div class="stat-card completed">
+        <span class="stat-label">Completed Visits</span>
+        <div class="stat-val" id="statCompleted">—</div>
+      </div>
+    </section>
+
+    <!-- Filter & Search Toolbar -->
+    <section class="filter-bar" aria-label="Filters">
+      <div class="filter-group">
+        <input type="text" id="searchInput" class="filter-input" placeholder="Search by name, phone, ref, service..." />
+        <select id="statusFilter" class="filter-select">
+          <option value="all">All Statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+        <select id="cityFilter" class="filter-select">
+          <option value="all">All Emirates</option>
+          <option value="Dubai">Dubai</option>
+          <option value="Abu Dhabi">Abu Dhabi</option>
+          <option value="Sharjah">Sharjah</option>
+          <option value="Ajman">Ajman</option>
+          <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+          <option value="Fujairah">Fujairah</option>
+          <option value="Umm Al Quwain">Umm Al Quwain</option>
+        </select>
+      </div>
+      <div style="font-size: 13px; color: var(--text-muted);">
+        Auto-refreshes live every 30s
+      </div>
+    </section>
+
+    <!-- Bookings Table -->
+    <div class="table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Ref #</th>
+            <th>Customer</th>
+            <th>Contact & Emirate</th>
+            <th>Service & Est. Cost</th>
+            <th>Preferred Schedule</th>
+            <th>Status</th>
+            <th>Technician</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="bookingsTableBody">
+          <tr>
+            <td colspan="8" style="text-align: center; color: var(--text-muted); padding: 40px;">
+              Loading bookings...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Edit/Details Modal Dialog -->
+  <dialog id="editModal" closedby="any" class="admin-modal" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <h2 id="modalTitle">Edit Booking: <span id="modalRef"></span></h2>
+      <button class="modal-close" onclick="document.getElementById('editModal').close()" type="button" aria-label="Close modal">&times;</button>
+    </div>
+    <form id="editForm" method="dialog">
+      <div class="modal-body">
+        <div style="font-size: 14px; color: var(--text-muted); margin-bottom: 6px;">
+          Customer: <strong id="modalCustomer" style="color: var(--text-primary);"></strong>
+        </div>
+
+        <div class="modal-field">
+          <label for="modalStatus">Booking Status</label>
+          <select id="modalStatus" required>
+            <option value="Pending">Pending</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+
+        <div class="modal-field">
+          <label for="modalTech">Assigned Technician</label>
+          <input type="text" id="modalTech" placeholder="e.g. Tariq Mahmoud (HVAC Team Lead)" />
+        </div>
+
+        <div class="modal-field">
+          <label for="modalCost">Estimated / Invoiced Cost</label>
+          <input type="text" id="modalCost" placeholder="e.g. AED 450" />
+        </div>
+
+        <div class="modal-field">
+          <label for="modalNotes">Service & Customer Notes</label>
+          <textarea id="modalNotes" rows="3" placeholder="Access instructions, spare parts required, etc."></textarea>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" onclick="document.getElementById('editModal').close()">Cancel</button>
+        <button type="submit" class="btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Toast Notification -->
+  <div id="adminToast" class="admin-toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

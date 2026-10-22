@@ -17,12 +17,14 @@ app.get('/admin', (req, res) => {
   res.redirect('/admin.html');
 });
 
-// Serve static frontend files
+// Serve static frontend files from public (and fallback to root)
+const publicDir = path.join(__dirname, 'public');
+app.use(express.static(publicDir));
 app.use(express.static(__dirname));
 
 // Fallback to index.html for client-side routing
 app.use((req, res) => {
-  res.sendFile(path.resolve(__dirname, 'index.html'));
+  res.sendFile(path.join(publicDir, 'index.html'));
 });
 
 // Start Server if run directly
