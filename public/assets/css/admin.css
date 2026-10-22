@@ -1,14 +1,14 @@
 :root {
-  --bg-admin: #0A1413;
-  --bg-card: #12211F;
-  --bg-card-hover: #172A28;
-  --surface-border: #1E3734;
-  --brass: #CF8942;
-  --brass-dark: #844C1D;
-  --text-primary: #F5EEDB;
+  --bg-admin: #081312;
+  --bg-card: #0E201E;
+  --bg-card-hover: #152B28;
+  --surface-border: #1C3835;
+  --brass: #D8B467;
+  --brass-dark: #B88E3E;
+  --text-primary: #F7F2E6;
   --text-muted: #8E9F9D;
-  --status-pending: #E5A93C;
-  --status-confirmed: #4A90E2;
+  --status-pending: #EAB308;
+  --status-confirmed: #38BDF8;
   --status-inprogress: #A855F7;
   --status-completed: #22C55E;
   --status-cancelled: #EF4444;
@@ -96,20 +96,21 @@ body {
 }
 
 .btn-primary {
-  background: var(--brass-dark);
-  border: 1px solid var(--brass);
-  color: #FFFDF7;
+  background: linear-gradient(135deg, #E2C27D 0%, #C5A059 100%);
+  border: 1px solid rgba(255, 235, 175, 0.4);
+  color: #0A1C1A;
   padding: 8px 20px;
   border-radius: 8px;
   font-size: 14px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background: var(--brass);
-  color: #0E2927;
+  background: linear-gradient(135deg, #ECD193 0%, #D4AC60 100%);
+  color: #051211;
+  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.4);
 }
 
 /* Container */
