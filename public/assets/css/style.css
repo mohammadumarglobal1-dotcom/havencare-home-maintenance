@@ -372,6 +372,20 @@
       border-top: 1px solid rgba(212, 169, 79, 0.25);
       border-bottom: 1px solid rgba(212, 169, 79, 0.25);
     }
+
+    /* Marquee placed inside hero at the bottom edge */
+    .hero-marquee {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      background: rgba(10, 22, 20, 0.85);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-top: 1px solid rgba(212, 169, 79, 0.35);
+      border-bottom: none;
+    }
     .marquee-track {
       display: flex;
       gap: 64px;
