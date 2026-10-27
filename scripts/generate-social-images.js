@@ -195,7 +195,6 @@ const templates = [
       <div class="divider-line"></div>
     </div>
     <div class="tagline">Premium Home Maintenance</div>
-    <div class="location-pill">Dubai • Abu Dhabi • UAE</div>
   </div>
 </body>
 </html>`
@@ -323,7 +322,6 @@ const templates = [
     </div>
     <div class="brand-wordmark">Haven<em>Care</em></div>
     <div class="arabic-wordmark">ملاذ كير</div>
-    <div class="subtitle">DUBAI • UAE</div>
   </div>
 </body>
 </html>`
@@ -836,7 +834,6 @@ const templates = [
 
     <div class="bottom-cta">
       <div class="cta-btn">Book Your Visit Today</div>
-      <div class="web-link">Dubai • Abu Dhabi • Sharjah</div>
     </div>
   </div>
 </body>
