@@ -224,12 +224,6 @@ router.get('/bookings', (req, res) => {
     return res.status(500).json({ success: false, message: 'Internal server error.' });
   }
 });
-    return res.json({ success: true, count: bookings.length, bookings });
-  } catch (err) {
-    console.error('Error fetching bookings:', err);
-    return res.status(500).json({ success: false, message: 'Internal server error.' });
-  }
-});
 
 // 6. Update Booking Status / Technician / Notes
 router.patch('/bookings/:id', (req, res) => {
