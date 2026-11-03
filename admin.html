@@ -11,6 +11,32 @@
   <link rel="stylesheet" href="assets/css/admin.css" />
 </head>
 <body>
+
+  <!-- Login Screen Overlay -->
+  <div id="loginOverlay" class="login-overlay">
+    <div class="login-box">
+      <div class="login-logo">
+        <span class="login-brand">Haven<em>Care</em></span>
+        <span class="login-sub">Admin Portal</span>
+      </div>
+      <form id="loginForm" autocomplete="off" novalidate>
+        <div class="login-field">
+          <label for="loginUser">Username</label>
+          <input type="text" id="loginUser" placeholder="admin" autocomplete="username" required />
+        </div>
+        <div class="login-field">
+          <label for="loginPass">Password</label>
+          <input type="password" id="loginPass" placeholder="••••••••••••" autocomplete="current-password" required />
+        </div>
+        <div id="loginError" class="login-error" hidden>Invalid username or password.</div>
+        <button type="submit" class="login-btn" id="loginBtn">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard (hidden until logged in) -->
+  <div id="adminDashboard" style="display:none;">
+
   <!-- Header -->
   <header class="admin-header">
     <div class="admin-brand">
@@ -150,6 +176,8 @@
 
   <!-- Toast Notification -->
   <div id="adminToast" class="admin-toast" role="status" aria-live="polite"></div>
+
+  </div><!-- end #adminDashboard -->
 
   <script src="assets/js/admin.js"></script>
 </body>

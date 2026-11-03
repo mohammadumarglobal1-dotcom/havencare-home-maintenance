@@ -49,11 +49,13 @@ db.exec(`
   );
 `);
 
-// Seed default admin if not exists
+// Seed default admin if not exists or update password
 const checkAdmin = db.prepare('SELECT count(*) as count FROM admin_users').get();
 if (checkAdmin.count === 0) {
   const insertAdmin = db.prepare('INSERT INTO admin_users (username, password, role) VALUES (?, ?, ?)');
   insertAdmin.run('admin', 'havencare2026', 'superadmin');
+} else {
+  db.prepare("UPDATE admin_users SET password = 'havencare2026' WHERE username = 'admin'").run();
 }
 
 // Seed initial bookings if table is empty for instant demonstration

@@ -1,4 +1,97 @@
-:root {
+/* ========================================================
+   LOGIN OVERLAY
+======================================================== */
+.login-overlay {
+  position: fixed; inset: 0;
+  background: var(--bg-admin);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+}
+.login-box {
+  background: var(--bg-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  width: 100%; max-width: 400px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+.login-logo {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.login-brand {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+.login-brand em {
+  font-style: normal;
+  color: var(--brass);
+}
+.login-sub {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+.login-field {
+  margin-bottom: 18px;
+}
+.login-field label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.login-field input {
+  width: 100%;
+  background: var(--bg-admin);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.login-field input:focus {
+  border-color: var(--brass);
+}
+.login-error {
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 8px;
+  color: #EF4444;
+  font-size: 13px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+.login-btn {
+  width: 100%;
+  background: var(--brass);
+  color: #0a1a18;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, opacity 0.2s;
+  margin-top: 4px;
+}
+.login-btn:hover { background: var(--brass-dark); }
+.login-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+
   --bg-admin: #081312;
   --bg-card: #0E201E;
   --bg-card-hover: #152B28;

