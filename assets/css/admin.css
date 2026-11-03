@@ -1,3 +1,33 @@
+:root {
+  --bg-admin: #081312;
+  --bg-card: #0E201E;
+  --bg-card-hover: #152B28;
+  --surface-border: #1C3835;
+  --brass: #D8B467;
+  --brass-dark: #B88E3E;
+  --text-primary: #F7F2E6;
+  --text-muted: #8E9F9D;
+  --status-pending: #EAB308;
+  --status-confirmed: #38BDF8;
+  --status-inprogress: #A855F7;
+  --status-completed: #22C55E;
+  --status-cancelled: #EF4444;
+  --font-display: "Marcellus", serif;
+  --font-body: "Jost", sans-serif;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-admin);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
 /* ========================================================
    LOGIN OVERLAY
 ======================================================== */
@@ -90,36 +120,6 @@
 }
 .login-btn:hover { background: var(--brass-dark); }
 .login-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-
-
-  --bg-admin: #081312;
-  --bg-card: #0E201E;
-  --bg-card-hover: #152B28;
-  --surface-border: #1C3835;
-  --brass: #D8B467;
-  --brass-dark: #B88E3E;
-  --text-primary: #F7F2E6;
-  --text-muted: #8E9F9D;
-  --status-pending: #EAB308;
-  --status-confirmed: #38BDF8;
-  --status-inprogress: #A855F7;
-  --status-completed: #22C55E;
-  --status-cancelled: #EF4444;
-  --font-display: "Marcellus", serif;
-  --font-body: "Jost", sans-serif;
-  --radius: 12px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  background: var(--bg-admin);
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.5;
-  min-height: 100vh;
-}
 
 /* Header */
 .admin-header {

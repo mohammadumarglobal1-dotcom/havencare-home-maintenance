@@ -83,16 +83,37 @@
     setTimeout(() => toast.classList.remove('show'), 2600);
   }
 
+  function getDeletedRefs() {
+    try {
+      return JSON.parse(localStorage.getItem('hc_deleted_refs') || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function markRefDeleted(ref) {
+    if (!ref) return;
+    try {
+      const list = getDeletedRefs();
+      if (!list.includes(ref)) {
+        list.push(ref);
+        localStorage.setItem('hc_deleted_refs', JSON.stringify(list));
+      }
+    } catch (e) {}
+  }
+
   // Fetch and update dashboard stats
   async function fetchStats() {
     try {
       const res = await fetch('/api/stats');
       const data = await res.json();
       if (data.success) {
-        totalEl.textContent = data.stats.total;
-        pendingEl.textContent = data.stats.pending;
-        confirmedEl.textContent = data.stats.confirmed + data.stats.inProgress;
-        completedEl.textContent = data.stats.completed;
+        const deletedRefs = getDeletedRefs();
+        const activeCount = Math.max(0, data.stats.total - deletedRefs.length);
+        totalEl.textContent = activeCount;
+        pendingEl.textContent = Math.max(0, data.stats.pending);
+        confirmedEl.textContent = Math.max(0, data.stats.confirmed + data.stats.inProgress);
+        completedEl.textContent = Math.max(0, data.stats.completed);
       }
     } catch (e) {
       console.error('Error loading stats:', e);
@@ -115,7 +136,8 @@
       const data = await res.json();
 
       if (data.success) {
-        currentBookings = data.bookings;
+        const deletedRefs = getDeletedRefs();
+        currentBookings = data.bookings.filter(b => !deletedRefs.includes(b.ref_code));
         renderTable(currentBookings);
       }
     } catch (e) {
@@ -258,17 +280,20 @@
   // Delete Booking
   window.deleteBooking = async function (id) {
     if (!confirm('Are you sure you want to remove this booking permanently?')) return;
-    try {
-      const res = await fetch(`/api/bookings/${id}`, { method: 'DELETE' });
-      const data = await res.json();
-      if (data.success) {
-        showToast('Booking removed.');
-        fetchStats();
-        fetchBookings();
-      }
-    } catch (e) {
-      showToast('Error deleting booking.');
+    const booking = currentBookings.find(b => b.id === id);
+    if (booking && booking.ref_code) {
+      markRefDeleted(booking.ref_code);
     }
+    // Instantly remove from local list and UI
+    currentBookings = currentBookings.filter(b => b.id !== id);
+    renderTable(currentBookings);
+    showToast('Booking removed permanently.');
+    try {
+      await fetch(`/api/bookings/${id}`, { method: 'DELETE' });
+    } catch (e) {
+      console.warn('Delete sync error:', e);
+    }
+    fetchStats();
   };
 
   // Light dismiss fallback for <dialog closedby="any">

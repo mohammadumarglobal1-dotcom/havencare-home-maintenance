@@ -160,18 +160,18 @@ router.post('/admin/login', (req, res) => {
 // 4. Get Dashboard Statistics
 router.get('/stats', (req, res) => {
   try {
-    const total = db.prepare('SELECT count(*) as count FROM bookings').get().count;
-    const pending = db.prepare("SELECT count(*) as count FROM bookings WHERE status = 'Pending'").get().count;
-    const confirmed = db.prepare("SELECT count(*) as count FROM bookings WHERE status = 'Confirmed'").get().count;
-    const inProgress = db.prepare("SELECT count(*) as count FROM bookings WHERE status = 'In Progress'").get().count;
-    const completed = db.prepare("SELECT count(*) as count FROM bookings WHERE status = 'Completed'").get().count;
+    const total = db.prepare('SELECT count(*) as count FROM bookings WHERE ref_code NOT IN (SELECT ref_code FROM deleted_booking_refs)').get().count;
+    const pending = db.prepare("SELECT count(*) as count FROM bookings WHERE status = 'Pending' AND ref_code NOT IN (SELECT ref_code FROM deleted_booking_refs)").get().count;
+    const confirmed = db.prepare("SELECT count(*) as count FROM bookings WHERE status = 'Confirmed' AND ref_code NOT IN (SELECT ref_code FROM deleted_booking_refs)").get().count;
+    const inProgress = db.prepare("SELECT count(*) as count FROM bookings WHERE status = 'In Progress' AND ref_code NOT IN (SELECT ref_code FROM deleted_booking_refs)").get().count;
+    const completed = db.prepare("SELECT count(*) as count FROM bookings WHERE status = 'Completed' AND ref_code NOT IN (SELECT ref_code FROM deleted_booking_refs)").get().count;
 
     const cityBreakdown = db.prepare(`
-      SELECT city, count(*) as count FROM bookings GROUP BY city ORDER BY count DESC
+      SELECT city, count(*) as count FROM bookings WHERE ref_code NOT IN (SELECT ref_code FROM deleted_booking_refs) GROUP BY city ORDER BY count DESC
     `).all();
 
     const serviceBreakdown = db.prepare(`
-      SELECT service, count(*) as count FROM bookings GROUP BY service ORDER BY count DESC
+      SELECT service, count(*) as count FROM bookings WHERE ref_code NOT IN (SELECT ref_code FROM deleted_booking_refs) GROUP BY service ORDER BY count DESC
     `).all();
 
     return res.json({
@@ -196,7 +196,7 @@ router.get('/stats', (req, res) => {
 router.get('/bookings', (req, res) => {
   try {
     const { status, city, search } = req.query;
-    let query = 'SELECT * FROM bookings WHERE 1=1';
+    let query = 'SELECT * FROM bookings WHERE ref_code NOT IN (SELECT ref_code FROM deleted_booking_refs)';
     const params = [];
 
     if (status && status !== 'all') {
@@ -218,6 +218,12 @@ router.get('/bookings', (req, res) => {
     query += ' ORDER BY id DESC';
 
     const bookings = db.prepare(query).all(...params);
+    return res.json({ success: true, count: bookings.length, bookings });
+  } catch (err) {
+    console.error('Error fetching bookings:', err);
+    return res.status(500).json({ success: false, message: 'Internal server error.' });
+  }
+});
     return res.json({ success: true, count: bookings.length, bookings });
   } catch (err) {
     console.error('Error fetching bookings:', err);
@@ -262,9 +268,20 @@ router.patch('/bookings/:id', (req, res) => {
 router.delete('/bookings/:id', (req, res) => {
   try {
     const { id } = req.params;
+    const existing = db.prepare('SELECT ref_code FROM bookings WHERE id = ?').get(id);
+    if (existing && existing.ref_code) {
+      try {
+        db.prepare('INSERT OR IGNORE INTO deleted_booking_refs (ref_code, deleted_at) VALUES (?, ?)').run(
+          existing.ref_code,
+          new Date().toISOString()
+        );
+      } catch (e) {
+        console.warn('Error recording deleted ref:', e);
+      }
+    }
     const del = db.prepare('DELETE FROM bookings WHERE id = ?');
     const result = del.run(id);
-    if (result.changes === 0) {
+    if (result.changes === 0 && !existing) {
       return res.status(404).json({ success: false, message: 'Booking not found.' });
     }
     return res.json({ success: true, message: 'Booking removed successfully.' });
@@ -277,7 +294,7 @@ router.delete('/bookings/:id', (req, res) => {
 // 8. CSV Export
 router.get('/export/csv', (req, res) => {
   try {
-    const bookings = db.prepare('SELECT * FROM bookings ORDER BY id DESC').all();
+    const bookings = db.prepare('SELECT * FROM bookings WHERE ref_code NOT IN (SELECT ref_code FROM deleted_booking_refs) ORDER BY id DESC').all();
     const headers = [
       'ID', 'Reference', 'Customer Name', 'Phone', 'Emirate', 'Service',
       'Property', 'Preferred Date', 'Time Slot', 'Status', 'Technician',
