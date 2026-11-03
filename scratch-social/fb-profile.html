@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 48%, #143532 0%, #0A1C1A 55%, #050E0D 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jost', sans-serif;
+    color: #F7F5F0;
+    position: relative;
+  }
+  
+  /* Subtle luxury geometric grid texture */
+  .bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(212, 169, 79, 0.08) 1.5px, transparent 1.5px);
+    background-size: 36px 36px;
+    opacity: 0.7;
+  }
+
+  /* Circular luxury border (stays within Facebook circle crop of 900px) */
+  .circle-outer {
+    position: absolute;
+    width: 940px;
+    height: 940px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(212, 169, 79, 0.35);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), inset 0 0 40px rgba(0, 0, 0, 0.4);
+  }
+  .circle-inner {
+    position: absolute;
+    width: 890px;
+    height: 890px;
+    border-radius: 50%;
+    border: 1px dashed rgba(212, 169, 79, 0.3);
+  }
+
+  /* Center Luxury Badge */
+  .content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 780px;
+  }
+
+  /* Crest Monogram */
+  .crest {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .crest-frame {
+    position: absolute;
+    inset: 0;
+    border: 2px solid #D8B467;
+    transform: rotate(45deg);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(20, 53, 50, 0.9), rgba(10, 28, 26, 0.95));
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(216, 180, 103, 0.25);
+  }
+  .crest-inner-frame {
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(216, 180, 103, 0.4);
+    transform: rotate(45deg);
+    border-radius: 14px;
+  }
+  .crest-text {
+    position: relative;
+    z-index: 2;
+    font-family: 'Marcellus', serif;
+    font-size: 80px;
+    font-weight: 400;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #FFF6DD 0%, #E2C27D 35%, #B88E3E 70%, #F5E1A4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  }
+
+  /* Brand Typography */
+  .brand-title {
+    font-family: 'Marcellus', serif;
+    font-size: 86px;
+    letter-spacing: 0.04em;
+    color: #F7F5F0;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .brand-title em {
+    font-style: normal;
+    background: linear-gradient(135deg, #FFF6DD 0%, #E2C27D 35%, #B88E3E 70%, #F5E1A4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .arabic-title {
+    font-family: 'Amiri', serif;
+    font-size: 46px;
+    color: #D8B467;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 320px;
+    margin-bottom: 22px;
+  }
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D8B467, transparent);
+  }
+  .divider-diamond {
+    color: #D8B467;
+    font-size: 14px;
+  }
+
+  .tagline {
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #E2C27D;
+    margin-bottom: 8px;
+  }
+
+  .location-pill {
+    font-size: 16px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #A3B8B5;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 169, 79, 0.25);
+    padding: 6px 22px;
+    border-radius: 999px;
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-pattern"></div>
+  <div class="circle-outer"></div>
+  <div class="circle-inner"></div>
+
+  <div class="content">
+    <div class="crest">
+      <div class="crest-frame"></div>
+      <div class="crest-inner-frame"></div>
+      <div class="crest-text">HC</div>
+    </div>
+    <h1 class="brand-title">Haven<em>Care</em></h1>
+    <div class="arabic-title">ملاذ كير</div>
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond">◆</div>
+      <div class="divider-line"></div>
+    </div>
+    <div class="tagline">Premium Home Maintenance</div>
+  </div>
+</body>
+</html>

@@ -1,6 +1,66 @@
 (function () {
   'use strict';
 
+  /* ======================================================
+     LOGIN GATE
+  ====================================================== */
+  const loginOverlay   = document.getElementById('loginOverlay');
+  const adminDashboard = document.getElementById('adminDashboard');
+  const loginForm      = document.getElementById('loginForm');
+  const loginError     = document.getElementById('loginError');
+  const loginBtn       = document.getElementById('loginBtn');
+
+  function isLoggedIn() {
+    return sessionStorage.getItem('hc_admin') === '1';
+  }
+
+  function showDashboard() {
+    if (loginOverlay) loginOverlay.style.display = 'none';
+    if (adminDashboard) adminDashboard.style.display = '';
+    init();
+  }
+
+  if (isLoggedIn()) {
+    showDashboard();
+  }
+
+  if (loginForm) {
+    loginForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const username = document.getElementById('loginUser').value.trim();
+      const password = document.getElementById('loginPass').value.trim();
+      if (!username || !password) return;
+
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Signing in…';
+      loginError.hidden = true;
+
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+        const data = await res.json();
+        if (data.success) {
+          sessionStorage.setItem('hc_admin', '1');
+          showDashboard();
+        } else {
+          loginError.hidden = false;
+          loginBtn.disabled = false;
+          loginBtn.textContent = 'Sign In';
+        }
+      } catch {
+        loginError.textContent = 'Connection error. Please try again.';
+        loginError.hidden = false;
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Sign In';
+      }
+    });
+  }
+
+  function init() {
+
   let currentBookings = [];
   let editingId = null;
 
@@ -254,4 +314,7 @@
     fetchStats();
     fetchBookings();
   }, 30000);
+
+  } // end init()
+
 })();
